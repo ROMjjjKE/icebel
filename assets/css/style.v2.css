@@ -1,0 +1,397 @@
+/* АйсикБел — кондиционеры. Петроль, лёд, тёплый акцент */
+:root{
+  --ink:#08252A; --ink2:#0C3038; --paper:#F5F7F7; --ice:#E4F1EF; --ice2:#CFE9E4;
+  --acc:#FF5C29; --cool:#2FD3B4; --body:#3E5A5F; --line:rgba(8,37,42,.14);
+  --mono:"JetBrains Mono",monospace;
+}
+.wrap{padding-inline:clamp(16px,3.4vw,54px);max-width:1480px;margin:0 auto}
+.kick{display:inline-flex;align-items:center;gap:9px;font:600 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:#0E8A76}
+.kick::before{content:"";width:20px;height:2px;background:var(--cool)}
+.kick--w{color:var(--cool)}
+.h2{font:800 clamp(1.65rem,3.1vw,2.9rem)/1.03 "Montserrat",Arial,sans-serif;letter-spacing:-.04em}
+.h2--w{color:var(--paper)}
+.sec__head{display:grid;gap:12px;max-width:64ch;margin-bottom:clamp(22px,3.6vh,42px)}
+.sec__head--row{display:flex;justify-content:space-between;align-items:end;gap:20px;max-width:none;flex-wrap:wrap}
+.sec__lead{font-size:15px;line-height:1.66;color:var(--body);max-width:60ch}
+.ul{display:grid;gap:9px}
+.ul li{position:relative;padding-left:22px;font-size:14px;line-height:1.6;color:var(--body)}
+.ul li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:2px;background:var(--cool)}
+.ul--big li{font-size:15px;padding-block:3px}
+
+/* герой */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:80px;overflow:hidden;background:#061D22;color:var(--paper)}
+.hero__bg{position:absolute;inset:0}
+.hero__bg img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.hero__veil{position:absolute;inset:0;background:linear-gradient(160deg,rgba(6,29,34,.94) 8%,rgba(6,29,34,.72) 46%,rgba(6,29,34,.42) 72%,rgba(6,29,34,.82) 100%)}
+.hero__air{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.flow{stroke-dasharray:14 10;animation:drift 7s linear infinite}
+.flow.f2{animation-duration:9.5s;animation-direction:reverse;opacity:.7}
+.flow.f3{animation-duration:11s}
+@keyframes drift{to{stroke-dashoffset:-240}}
+.hero__in{position:relative;padding-block:clamp(30px,7vh,80px) clamp(20px,3vh,34px)}
+.hero__kick{font:600 10.5px/1.5 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:rgba(245,247,247,.7);opacity:0;animation:up .8s cubic-bezier(.16,1,.3,1) .05s forwards}
+.hero__h1{margin-top:clamp(12px,2vh,22px);font:800 clamp(2rem,5.4vw,4.7rem)/.97 "Montserrat",Arial,sans-serif;letter-spacing:-.05em;max-width:22ch}
+.hero__h1 em{font-style:normal;color:var(--cool)}
+.hero__lead{margin-top:16px;max-width:46ch;font-size:clamp(14.5px,1.2vw,16.5px);line-height:1.6;color:rgba(245,247,247,.82);opacity:0;animation:up .8s cubic-bezier(.16,1,.3,1) .16s forwards}
+.hero__cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:clamp(18px,2.6vh,28px);opacity:0;animation:up .8s cubic-bezier(.16,1,.3,1) .28s forwards}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* подбор */
+.sel{position:relative;margin-top:clamp(16px,2.4vh,26px);margin-bottom:clamp(14px,2.4vh,26px);background:#fff;color:var(--ink);display:grid;grid-template-columns:1.05fr 1fr .95fr;gap:clamp(14px,2.4vw,34px);align-items:center;padding:clamp(16px,2vw,26px);box-shadow:0 18px 50px -20px rgba(4,26,30,.55);opacity:0;animation:up .8s cubic-bezier(.16,1,.3,1) .4s forwards}
+.sel__t{font:800 15px/1.2 "Montserrat",Arial,sans-serif;letter-spacing:-.02em}
+.sel__h{margin-top:6px;font-size:12px;line-height:1.5;color:var(--body)}
+.sel__lbl{font:400 9.5px/1.6 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#6C8A8E}
+.sel__val{font:600 26px/1 var(--mono);letter-spacing:-.03em;margin:4px 0 6px;color:var(--ink)}
+.sel__val i{font-style:normal;font-size:13px;margin-left:3px;color:#6C8A8E}
+.sel input[type=range]{-webkit-appearance:none;width:100%;height:26px;background:transparent}
+.sel input[type=range]::-webkit-slider-runnable-track{height:4px;background:linear-gradient(90deg,var(--cool) 0%,var(--cool) var(--p,30%),#DCE7E6 var(--p,30%),#DCE7E6 100%)}
+.sel input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-9px;border-radius:50%;background:var(--acc);border:3px solid #fff;box-shadow:0 2px 8px rgba(4,26,30,.3);cursor:grab}
+.sel input[type=range]::-moz-range-track{height:4px;background:#DCE7E6}
+.sel input[type=range]::-moz-range-progress{height:4px;background:var(--cool)}
+.sel input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--acc);border:3px solid #fff}
+.sel__scale{display:flex;justify-content:space-between;font:400 9.5px/1 var(--mono);color:#7E999C}
+.sel__res{border-left:1px solid var(--line);padding-left:clamp(12px,1.6vw,22px)}
+.sel__kw{font:600 clamp(1.15rem,1.7vw,1.5rem)/1.1 var(--mono);letter-spacing:-.03em}
+.sel__cnt{margin-top:6px;font-size:12px;color:var(--body)}
+.sel__go{display:inline-block;margin-top:10px;font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--acc);border-bottom:1px solid rgba(255,92,41,.4);padding-bottom:4px}
+.sel__go:hover{color:var(--ink);border-color:var(--ink)}
+
+/* факты */
+.facts{background:var(--ink);color:var(--paper);padding-block:clamp(16px,2.4vh,24px)}
+.facts__in{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,30px)}
+.facts__i{border-left:1px solid rgba(245,247,247,.18);padding-left:clamp(10px,1.4vw,18px)}
+.facts__i:first-child{border-left:0;padding-left:0}
+.facts__i b{display:block;font:600 clamp(1.05rem,1.7vw,1.45rem)/1 var(--mono);color:var(--cool);letter-spacing:-.02em}
+.facts__i span{display:block;margin-top:7px;font-size:11.5px;line-height:1.5;color:rgba(245,247,247,.66)}
+.facts__i--acc b{color:var(--acc)}
+
+/* карточки товаров */
+.pcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:clamp(10px,1.4vw,18px)}
+.pc{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:box-shadow .25s,transform .25s,border-color .25s}
+.pc:hover{box-shadow:0 16px 34px -18px rgba(8,37,42,.4);transform:translateY(-2px);border-color:rgba(8,37,42,.3)}
+.pc__img{background:#F8FAFA;padding:14px 12px;display:flex;align-items:center;justify-content:center;aspect-ratio:16/9}
+.pc__img img{max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+.pc__b{padding:12px 13px 14px;display:flex;flex-direction:column;gap:5px;flex:1}
+.pc__br{font:600 9.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#0E8A76}
+.pc__n{font:600 13.5px/1.35 "Golos Text",sans-serif;letter-spacing:-.01em}
+.pc__t{font-size:11.5px;line-height:1.5;color:#6C8A8E}
+.pc__f{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+.pc__p{font:600 15px/1 var(--mono);letter-spacing:-.02em}
+.pc__p i{font-style:normal;font-size:10.5px;color:#6C8A8E;margin-left:2px}
+.pc__add{width:32px;height:32px;flex:0 0 32px;border:1px solid var(--ink);font:400 18px/1 var(--mono);color:var(--ink);transition:background .2s,color .2s}
+.pc__add:hover{background:var(--ink);color:#fff}
+.pc__add.is-on{background:var(--acc);border-color:var(--acc);color:#fff}
+.pop{padding-block:clamp(44px,7vh,100px)}
+.pop__all{display:inline-flex;align-items:center;gap:10px;margin-top:clamp(18px,3vh,30px);font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.pop__all span{color:var(--acc)}
+.pop__all:hover{color:var(--acc);border-color:var(--acc)}
+
+/* таблица мощности */
+.calc{padding-block:clamp(44px,7vh,100px);background:var(--ice);border-block:1px solid var(--line)}
+.calc__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(20px,3.4vw,54px);align-items:start}
+.tbl{width:100%;border-collapse:collapse;background:#fff}
+.tbl th{text-align:left;font:400 9.5px/1.5 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:#6C8A8E;padding:12px 14px;border-bottom:1px solid var(--line)}
+.tbl td{padding:13px 14px;border-bottom:1px solid var(--line);font-size:14px}
+.tbl td:nth-child(2){font:600 14px/1 var(--mono)}
+.tbl tr:last-child td{border-bottom:0}
+.calc__note{background:var(--ink);color:var(--paper);padding:clamp(18px,2.4vw,28px)}
+.calc__note b{font:700 13px/1.3 "Montserrat",Arial,sans-serif}
+.calc__note .ul{margin-top:12px}
+.calc__note .ul li{color:rgba(245,247,247,.76)}
+.calc__fine{margin-top:14px;font-size:12px;line-height:1.6;color:rgba(245,247,247,.6)}
+.calc__note .btn{margin-top:16px;width:100%}
+
+/* услуги */
+.serv{padding-block:clamp(44px,7vh,100px)}
+.serv__list{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,28px)}
+.serv__list li{display:flex;flex-direction:column;gap:9px;padding-top:16px;border-top:2px solid var(--ink)}
+.serv__list b{font:800 17px/1.2 "Montserrat",Arial,sans-serif;letter-spacing:-.02em}
+.serv__list p{font-size:13.5px;line-height:1.62;color:var(--body);flex:1}
+.serv__list a{font:600 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.serv__list a:hover{color:var(--ink)}
+
+/* работы превью */
+.works{padding-block:0 clamp(44px,7vh,90px)}
+.works__all{font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--ink);padding-bottom:6px}
+.works__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:clamp(8px,1.2vw,14px)}
+.works__grid figure{margin:0;overflow:hidden;background:var(--ice)}
+.works__grid img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.works__grid figure:hover img{transform:scale(1.04)}
+
+/* порядок */
+.proc{background:var(--ink);color:var(--paper);padding-block:clamp(44px,7vh,100px)}
+.proc__list{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2.4vw,32px)}
+.stp{display:grid;gap:8px;border-top:1px solid rgba(245,247,247,.22);padding-top:14px}
+.stp__n{font:600 11px/1 var(--mono);color:var(--acc);letter-spacing:.1em}
+.stp b{font:800 15px/1.2 "Montserrat",Arial,sans-serif;letter-spacing:-.02em}
+.stp__d{font-size:13px;line-height:1.6;color:rgba(245,247,247,.66)}
+
+/* FAQ */
+.faq{padding-block:clamp(44px,7vh,100px);background:var(--ice)}
+.faq__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(20px,3.6vw,54px);align-items:start}
+.faq__n{margin-top:12px;font-size:13.5px;line-height:1.6;color:var(--body);max-width:30ch}
+.faq__side .btn{margin-top:18px}
+.qa{border-bottom:1px solid var(--line)}
+.qa summary{cursor:pointer;list-style:none;padding:15px 0;font:600 15px/1.4 "Golos Text",sans-serif;display:flex;justify-content:space-between;gap:16px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";color:var(--acc);font:400 19px/1 var(--mono)}
+.qa[open] summary::after{content:"–"}
+.qa p{padding-bottom:14px;font-size:13.8px;line-height:1.7;color:var(--body);max-width:64ch}
+
+/* финал */
+.end{background:var(--ink);color:var(--paper);padding-block:clamp(40px,6.4vh,92px)}
+.end__in{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(18px,3vw,44px);align-items:end}
+.end__h{margin-top:12px;font:800 clamp(1.45rem,3vw,2.6rem)/1.05 "Montserrat",Arial,sans-serif;letter-spacing:-.04em}
+.end__p{margin-top:12px;font-size:14px;line-height:1.7;color:rgba(245,247,247,.7);max-width:44ch}
+.end__cta{display:flex;flex-direction:column;gap:9px}
+.end__cta .btn{width:100%}
+.end__m{font:400 12px/1 var(--mono);color:rgba(245,247,247,.6);text-align:center;padding-top:5px;border-bottom:1px solid rgba(245,247,247,.22);padding-bottom:6px}
+
+/* внутренние */
+.ph{padding-block:clamp(94px,13vh,160px) clamp(24px,4vh,44px)}
+.ph__h{margin-top:12px;font:800 clamp(1.75rem,5vw,4rem)/.99 "Montserrat",Arial,sans-serif;letter-spacing:-.05em}
+.ph__lead{margin-top:16px;max-width:58ch;font-size:15px;line-height:1.66;color:var(--body)}
+
+/* каталог */
+.cat{padding-bottom:clamp(30px,5vh,64px)}
+.cat__grid{display:grid;grid-template-columns:230px 1fr;gap:clamp(18px,2.6vw,38px);align-items:start}
+.filters{position:sticky;top:84px;display:grid;gap:18px;background:#fff;border:1px solid var(--line);padding:16px}
+.filters__t{font:400 9.5px/1.5 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:#6C8A8E;margin-bottom:9px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:7px 10px;border:1px solid var(--line);font-size:12px;line-height:1;color:var(--ink);transition:background .18s,color .18s,border-color .18s}
+.chip:hover{border-color:var(--ink)}
+.chip.is-on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sw{display:flex;align-items:center;gap:9px;padding:5px 0;font-size:13px;cursor:pointer}
+.sw input{position:absolute;opacity:0;width:0;height:0}
+.sw span{width:34px;height:19px;background:#DCE7E6;border-radius:19px;position:relative;transition:background .2s;flex:0 0 34px}
+.sw span::after{content:"";position:absolute;top:2px;left:2px;width:15px;height:15px;background:#fff;border-radius:50%;transition:transform .2s}
+.sw input:checked + span{background:var(--cool)}
+.sw input:checked + span::after{transform:translateX(15px)}
+.sw input:focus-visible + span{outline:2px solid var(--acc);outline-offset:2px}
+.filters__range{display:flex;align-items:center;gap:6px}
+.filters__range input{width:100%;padding:8px 9px;border:1px solid var(--line);font:400 12.5px/1 var(--mono);color:var(--ink);background:#F8FAFA;border-radius:0}
+.filters__reset{width:100%;padding:10px;border:1px solid var(--ink);font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.filters__reset:hover{background:var(--ink);color:#fff}
+.cat__bar{display:flex;align-items:center;gap:14px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:16px;flex-wrap:wrap}
+.cat__count{font:400 12px/1 var(--mono);color:var(--body)}
+.cat__count b{color:var(--ink);font-size:15px}
+.cat__sortl{margin-left:auto;display:flex;align-items:center;gap:8px;font:400 9.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#6C8A8E}
+.cat__sortl select{padding:8px 10px;border:1px solid var(--line);font:400 12.5px/1 "Golos Text",sans-serif;background:#fff;border-radius:0;color:var(--ink)}
+.cat__filterbtn{display:none;padding:9px 13px;border:1px solid var(--ink);font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.cat__empty{padding:30px 0;font-size:14px;color:var(--body)}
+.cart{position:fixed;left:0;right:0;bottom:0;z-index:110;background:var(--ink);color:#fff;box-shadow:0 -6px 30px -10px rgba(4,26,30,.5)}
+.cart__in{display:flex;align-items:center;gap:16px;padding:10px clamp(16px,3.4vw,54px);max-width:1480px;margin:0 auto}
+.cart__t{font:600 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(245,247,247,.7)}
+.cart__t b{color:var(--cool)}
+.cart__sum{font:600 15px/1 var(--mono);margin-left:auto}
+.cart__in .btn{padding:11px 18px}
+.cart__x{width:30px;height:30px;border:1px solid rgba(245,247,247,.3);font:300 18px/1 "Golos Text",sans-serif}
+
+/* монтаж */
+.mont{padding-bottom:clamp(30px,5vh,60px)}
+.mont__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(20px,3.4vw,54px);align-items:start}
+.mont__grid .ul{margin-top:16px}
+.mont__fine{margin-top:16px;font-size:12.5px;line-height:1.65;color:#6C8A8E;max-width:56ch}
+.mont__card{background:var(--ink);color:#fff;padding:clamp(18px,2.4vw,28px)}
+.mont__t{font:800 17px/1.2 "Montserrat",Arial,sans-serif}
+.mont__p{margin-top:10px;font-size:13.5px;line-height:1.65;color:rgba(245,247,247,.74)}
+.mont__card .btn{width:100%;margin-top:16px}
+.mont__promo{margin-top:16px;padding-top:14px;border-top:1px solid rgba(245,247,247,.2);font-size:12px;line-height:1.6;color:var(--cool)}
+.mont2{padding-block:clamp(30px,5vh,70px)}
+.mont2__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,28px);margin-top:20px}
+.mont2__grid div{border-top:2px solid var(--ink);padding-top:14px}
+.mont2__grid b{font:800 15px/1.25 "Montserrat",Arial,sans-serif;letter-spacing:-.02em}
+.mont2__grid p{margin-top:8px;font-size:13px;line-height:1.62;color:var(--body)}
+
+/* галерея */
+.gal{padding-bottom:clamp(30px,5vh,60px)}
+.gal__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(8px,1.2vw,14px)}
+.gal__i{margin:0;overflow:hidden;background:var(--ice)}
+.gal__i img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.gal__i:hover img{transform:scale(1.05)}
+.gal__note{margin-top:16px;font-size:12.5px;color:#6C8A8E;max-width:60ch}
+
+/* о компании */
+.about{padding-bottom:clamp(30px,5vh,60px)}
+.about__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(20px,3.6vw,56px);align-items:start}
+.about__p{font-size:15px;line-height:1.7;color:var(--body);margin-bottom:14px;max-width:56ch}
+.about__grid .ul{margin-top:18px}
+.requisites{background:#fff;border:1px solid var(--line);padding:clamp(16px,2vw,24px)}
+.requisites div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.requisites div:first-child{border-top:0;padding-top:0}
+.requisites dt{font:400 9.5px/1.7 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#6C8A8E}
+.requisites dd{font-size:13.5px;margin:0}
+.requisites a{border-bottom:1px solid rgba(8,37,42,.3)}
+.brands{padding-block:clamp(24px,4vh,50px);background:var(--ice);border-block:1px solid var(--line)}
+.brands__list{display:flex;flex-wrap:wrap;gap:clamp(14px,3vw,44px);margin-top:14px;font:800 clamp(1rem,2vw,1.5rem)/1 "Montserrat",Arial,sans-serif;letter-spacing:-.03em;color:#0E3B42}
+
+/* доставка */
+.del{padding-bottom:clamp(30px,5vh,60px)}
+.del__grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(20px,3.4vw,54px);align-items:start}
+.del__grid .ul{margin-top:14px}
+.del__fine{margin-top:16px;font-size:12.5px;line-height:1.65;color:#6C8A8E}
+.del__card{background:#fff;border:1px solid var(--line);padding:clamp(18px,2.4vw,26px)}
+.del__t{font:800 15px/1.2 "Montserrat",Arial,sans-serif}
+.del__p{margin-top:9px;font-size:13.5px;line-height:1.65;color:var(--body)}
+.del__card .btn{width:100%;margin-top:18px}
+
+/* контакты */
+.contact{padding-bottom:clamp(30px,5vh,60px)}
+.contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3.6vw,56px);align-items:start}
+.contact__tel{display:inline-block;font:600 clamp(1.3rem,2.6vw,2rem)/1 var(--mono);letter-spacing:-.03em;border-bottom:2px solid var(--ink);padding-bottom:8px}
+.contact__mail{display:block;margin-top:12px;font:400 14px/1 var(--mono);color:#0E8A76}
+.contact__h{margin-top:10px;font:400 12px/1 var(--mono);color:#6C8A8E}
+.contact__cards{display:grid;gap:10px;margin-top:20px}
+.ccard{border:1px solid var(--line);background:#fff;padding:14px 16px}
+.ccard__l{font:400 9.5px/1.6 var(--mono);letter-spacing:.13em;text-transform:uppercase;color:#6C8A8E}
+.ccard__a{font:700 14.5px/1.35 "Montserrat",Arial,sans-serif;margin-top:5px}
+.ccard__n{margin-top:5px;font-size:12.5px;line-height:1.55;color:var(--body)}
+.contact__act{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+.form{border:1px solid var(--line);background:#fff;padding:clamp(18px,2.4vw,30px)}
+.form__t{font:800 17px/1.2 "Montserrat",Arial,sans-serif}
+.form__n{margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--body)}
+.form__row{margin-top:11px;display:grid;gap:5px}
+.form label{font:400 9.5px/1.7 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:#6C8A8E}
+.form input,.form select{width:100%;padding:12px;border:1px solid rgba(8,37,42,.2);background:#FAFCFC;font:400 14.5px/1.4 "Golos Text",sans-serif;color:var(--ink);border-radius:0}
+.form input:focus,.form select:focus{outline:2px solid var(--cool);outline-offset:1px}
+.form button{width:100%;margin-top:14px}
+.form__fine{margin-top:9px;font-size:11px;line-height:1.6;color:#6C8A8E}
+.form__fine a{border-bottom:1px solid rgba(8,37,42,.25)}
+.form__ok{display:none;margin-top:11px;padding:11px;border:1px dashed var(--acc);font-size:12.5px;line-height:1.5}
+.form__ok.is-on{display:block}
+.txt{padding-bottom:clamp(30px,5vh,64px);max-width:76ch}
+.txt h2{font:800 16px/1.3 "Montserrat",Arial,sans-serif;margin-top:22px}
+.txt p{margin-top:9px;font-size:14.5px;line-height:1.75;color:var(--body)}
+.txt .fine{margin-top:22px;font-size:12px;color:#6C8A8E}
+
+/* подвал */
+.ft{background:var(--ink);color:var(--paper);padding-block:clamp(30px,4.6vh,58px)}
+.ft__top{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(16px,3vw,44px);align-items:end;padding-bottom:clamp(16px,2.4vh,26px);border-bottom:1px solid rgba(245,247,247,.16)}
+.ft__b{font:800 clamp(1.1rem,1.8vw,1.5rem)/1 "Montserrat",Arial,sans-serif;letter-spacing:-.03em}
+.ft__s{margin-top:8px;font-size:12.5px;line-height:1.6;color:rgba(245,247,247,.62);max-width:44ch}
+.ft__c{display:grid;gap:5px;justify-items:start}
+.ft__tel{font:600 15px/1 var(--mono);color:var(--cool)}
+.ft__mail{font:400 12.5px/1 var(--mono);color:rgba(245,247,247,.8)}
+.ft__h{font:400 11px/1.4 var(--mono);color:rgba(245,247,247,.45)}
+.ft__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2.4vw,34px);padding-top:clamp(16px,2.4vh,26px);font-size:12.5px;color:rgba(245,247,247,.8);line-height:1.6}
+.ft__l{font:400 9.5px/1 var(--mono);letter-spacing:.15em;text-transform:uppercase;color:rgba(245,247,247,.42);margin-bottom:10px}
+.ft__grid ul{display:grid;gap:6px}
+.ft__grid a:hover{color:var(--cool)}
+.ft__bot{margin-top:clamp(18px,2.6vh,30px);padding-top:12px;border-top:1px solid rgba(245,247,247,.16);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font:400 10.5px/1.6 var(--mono);color:rgba(245,247,247,.44)}
+
+@media (max-width:1080px){
+  .sel{grid-template-columns:1fr;gap:12px}
+  .sel__res{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .facts__in{grid-template-columns:repeat(2,1fr);gap:14px}
+  .calc__grid,.faq__grid,.mont__grid,.about__grid,.del__grid,.contact__grid,.end__in,.ft__top{grid-template-columns:1fr}
+  .serv__list,.proc__list,.mont2__grid{grid-template-columns:repeat(2,1fr)}
+  .works__grid{grid-template-columns:1fr 1fr}
+  .cat__grid{grid-template-columns:1fr}
+  .filters{position:static;grid-template-columns:1fr}
+  .filters[hidden]{display:none!important}
+  .cat__filterbtn{display:block;margin-left:auto}
+  .cat__sortl{margin-left:0}
+  .end__cta{flex-direction:row;flex-wrap:wrap}
+  .end__cta .btn{width:auto}
+  .ft__grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:760px){
+  .pcs{grid-template-columns:1fr 1fr}
+  .pc__n{font-size:12px}
+  .pc__img{padding:8px}
+  .serv__list,.proc__list,.mont2__grid,.gal__grid,.works__grid{grid-template-columns:1fr}
+  .cart__in{flex-wrap:wrap;gap:8px}
+  .cart__sum{margin-left:0;width:100%}
+  .cart__in .btn{width:100%}
+  .facts__in{grid-template-columns:1fr 1fr}
+  .tbl th,.tbl td{padding:10px 9px;font-size:12.5px}
+}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.rv.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}.flow{animation:none}}
+
+/* на телефоне карточка подбора не должна упираться в нижнюю полосу */
+@media (max-width:760px){
+  .hero{padding-bottom:66px}
+  .sel{margin-bottom:0}
+  .sel__val{font-size:23px}
+  .hero__h1{max-width:18ch}
+}
+
+/* карточка подбора лежит на стыке фото и следующей секции */
+.selbar{position:relative;z-index:4;margin-top:clamp(-64px,-5vw,-34px)}
+.selbar .sel{margin-top:0;margin-bottom:0}
+.hero{padding-bottom:clamp(40px,7vh,88px)}
+@media (max-width:1080px){.selbar{margin-top:-34px}}
+@media (max-width:760px){.hero{padding-bottom:34px}.selbar{margin-top:-26px}}
+
+/* фото в герое должно читаться: меньше затемнения справа, светлее сам кадр */
+.hero__bg img{filter:brightness(1.14) saturate(1.06) contrast(1.02)}
+.hero__veil{background:linear-gradient(152deg,rgba(6,29,34,.93) 0%,rgba(6,29,34,.6) 32%,rgba(6,29,34,.2) 62%,rgba(6,29,34,.55) 84%,rgba(6,29,34,.86) 100%)}
+@media (max-width:760px){.hero__veil{background:linear-gradient(180deg,rgba(6,29,34,.82) 0%,rgba(6,29,34,.5) 40%,rgba(6,29,34,.7) 72%,rgba(6,29,34,.92) 100%)}}
+
+/* ---------- 9 ноября: главная целиком в первом экране ----------
+   Герой и карточка подбора живут в одном флексе высотой в экран:
+   фото ужимается на высоту карточки, карточка всегда видна без прокрутки. */
+.herostage{
+  min-height:100svh;display:flex;flex-direction:column;
+  background:#061D22;padding-bottom:clamp(14px,2.2vh,28px);
+}
+.herostage .hero{
+  flex:1 1 auto;min-height:clamp(420px,58svh,700px);
+  padding-bottom:clamp(28px,4.4vh,64px);
+}
+.herostage .selbar{flex:0 0 auto;margin-top:clamp(-56px,-4.4vw,-28px)}
+/* на коротких экранах заголовок и отступы поджимаются, чтобы ничего не резалось */
+@media (max-height:760px){
+  .herostage .hero__h1{font-size:clamp(1.8rem,4.6vw,3.4rem)}
+  .herostage .hero__lead{margin-top:12px}
+  .herostage .hero__cta{margin-top:clamp(14px,2vh,22px)}
+  .herostage .hero{padding-bottom:clamp(24px,3.4vh,44px)}
+}
+@media (max-width:760px){
+  /* карточка не должна прятаться под нижней полосой связи */
+  .herostage{padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+  .herostage .hero{min-height:clamp(360px,48svh,600px);padding-bottom:40px}
+  .herostage .selbar{margin-top:-30px}
+  .herostage .hero__lead{max-width:44ch}
+  .herostage .hero__h1{max-width:16ch}
+  /* карточка подбора на телефоне компактнее: она должна влезать над полосой связи */
+  .herostage .sel{padding:14px 16px 16px}
+  .herostage .sel__h{display:none}
+  .herostage .sel__val{font-size:21px;margin:2px 0 4px}
+  .herostage .sel__res{padding-top:10px;gap:10px}
+  .herostage .sel__go{margin-top:6px}
+  .herostage .sel__scale{font-size:9px}
+  .herostage .sel__kw{font-size:1.05rem}
+  .herostage .sel__cnt{font-size:11px;margin-top:4px}
+}
+
+/* короткие телефоны (SE, 8-й, небольшие андроиды): поджимаем герой и поднимаем карточку */
+@media (max-width:760px) and (max-height:730px){
+  .herostage{padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+  .herostage .hero{padding-bottom:16px;padding-top:64px}
+  .herostage .hero__kick{font-size:9.5px}
+  .herostage .hero__h1{font-size:clamp(1.5rem,7.2vw,2rem);margin-top:8px;max-width:20ch}
+  .herostage .hero__lead{font-size:13.5px;line-height:1.45;margin-top:8px}
+  .herostage .hero__cta{margin-top:12px}
+  .herostage .hero__cta .btn{padding:11px 14px;font-size:11px}
+  .herostage .selbar{margin-top:-50px}
+  .herostage .sel{padding:12px 14px 12px}
+  .herostage .sel__val{font-size:19px}
+  .herostage .sel__scale{display:none}
+  .herostage .sel__res{padding-top:8px;gap:8px}
+}
+
+/* совсем маленькие экраны (SE 1-го поколения): подчёркивание в герое убираем,
+   чтобы карточка подбора всё равно была видна целиком */
+@media (max-width:760px) and (max-height:600px){
+  .herostage{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  .herostage .hero{min-height:288px;padding-bottom:12px}
+  .herostage .hero__lead{display:none}
+  .herostage .selbar{margin-top:-64px}
+  .herostage .sel{padding:10px 12px}
+  .herostage .sel__val{font-size:18px}
+  .herostage .sel__lbl{font-size:9px}
+  .herostage .sel__res{padding-top:6px}
+}
